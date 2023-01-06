@@ -5,7 +5,7 @@ import "./Expenses.css"
 import ExpensesFilter from "./ExpensesFilter"
 
 const Expenses = ({ expenses }) => {
-	const [filter, setFilter] = useState("")
+	const [filter, setFilter] = useState("2022")
 	const filterDate = (filterDate) => {
 		console.log(filterDate)
 		setFilter(filterDate)
@@ -13,7 +13,7 @@ const Expenses = ({ expenses }) => {
 
 	return (
 		<Card className="expenses">
-			<ExpensesFilter filterDate={filterDate} />
+			<ExpensesFilter originalDate={filter} filterDate={filterDate} />
 			<ExpenseItem
 				title={expenses[0].title}
 				amount={expenses[0].amount}
