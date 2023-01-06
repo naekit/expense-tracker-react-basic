@@ -1,6 +1,12 @@
+import { useState } from "react"
 import Expenses from "./components/Expenses/Expenses"
+import NewExpense from "./components/NewExpense/NewExpense"
 
 const App = () => {
+	const checkExpense = (expense) => {
+		console.log(expense)
+	}
+
 	const expenses = [
 		{
 			id: "e2",
@@ -26,6 +32,7 @@ const App = () => {
 	return (
 		<div>
 			<h2>Let's get started!</h2>
+			<NewExpense setExpense={checkExpense} />
 			<Expenses expenses={expenses} />
 		</div>
 	)
