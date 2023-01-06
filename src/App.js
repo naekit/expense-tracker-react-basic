@@ -3,11 +3,7 @@ import Expenses from "./components/Expenses/Expenses"
 import NewExpense from "./components/NewExpense/NewExpense"
 
 const App = () => {
-	const checkExpense = (expense) => {
-		console.log(expense)
-	}
-
-	const expenses = [
+	const [expenses, setExpenses] = useState([
 		{
 			id: "e2",
 			title: "New TV",
@@ -27,7 +23,16 @@ const App = () => {
 			amount: 40.99,
 			date: new Date(2023, 0, 6),
 		},
-	]
+	])
+
+	const checkExpense = (expense) => {
+		const newExpense = {
+			...expense,
+			id: `${Math.floor(Math.random() * 10000)}`,
+		}
+		console.log(newExpense)
+		setExpenses((prevState) => [...prevState, newExpense])
+	}
 
 	return (
 		<div>
