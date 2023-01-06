@@ -2,10 +2,19 @@ import React from "react"
 import ExpenseForm from "./ExpenseForm"
 import "./NewExpense.css"
 
-const NewExpense = ({ setExpense }) => {
+const NewExpense = ({ setExpense, toggle, setToggle }) => {
 	return (
 		<div className="new-expense">
-			<ExpenseForm onSaveExpenseData={setExpense} />
+			{!toggle ? (
+				<button onClick={() => setToggle(!toggle)}>
+					Add New Expense
+				</button>
+			) : (
+				<ExpenseForm
+					setToggle={setToggle}
+					onSaveExpenseData={setExpense}
+				/>
+			)}
 		</div>
 	)
 }

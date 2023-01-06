@@ -3,6 +3,7 @@ import Expenses from "./components/Expenses/Expenses"
 import NewExpense from "./components/NewExpense/NewExpense"
 
 const App = () => {
+	const [toggle, setToggle] = useState(false)
 	const [expenses, setExpenses] = useState([
 		{
 			id: "e2",
@@ -37,7 +38,11 @@ const App = () => {
 	return (
 		<div>
 			<h2>Let's get started!</h2>
-			<NewExpense setExpense={checkExpense} />
+			<NewExpense
+				toggle={toggle}
+				setToggle={setToggle}
+				setExpense={checkExpense}
+			/>
 			<Expenses expenses={expenses} />
 		</div>
 	)
