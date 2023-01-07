@@ -18,7 +18,11 @@ const ExpenseForm = ({ onSaveExpenseData, setToggle }) => {
 
 	const submitHandler = (event) => {
 		event.preventDefault()
-		const expenseData = { ...formData, date: new Date(formData.date) }
+		const expenseData = {
+			...formData,
+			date: new Date(formData.date),
+			amount: +formData.amount,
+		}
 		onSaveExpenseData(expenseData)
 		console.log(expenseData)
 		setForm({ title: "", amount: "", date: "" })
